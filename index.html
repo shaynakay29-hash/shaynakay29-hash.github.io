@@ -3,55 +3,65 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bond — meet differently</title>
+<title>Bond</title>
 
 <style>
 :root {
   --bond-red: #8D0B0B;
   --bond-orange: #EC9A4E;
-  --bond-earth: #876038;
   --bg: #0b0b0b;
   --text: #f5f5f5;
   --muted: #bdbdbd;
 }
 
+/* BASE */
 body {
   margin: 0;
   font-family: "Helvetica Neue", Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 /* HERO */
 header {
-  padding: 120px 20px 90px;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  padding: 80px 20px;
+  overflow: hidden;
+}
+
+/* CINEMATIC BACKGROUND IMAGE */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background:
-    radial-gradient(circle at top, rgba(141,11,11,0.35), transparent 60%),
-    radial-gradient(circle at bottom, rgba(236,154,78,0.15), transparent 60%);
+    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)),
+    url("hero.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: contrast(1.1) saturate(1.1);
+  z-index: -1;
 }
 
-/* MAIN LOGO */
+/* LOGO */
 .logo-main {
-  width: 240px;
-  max-width: 85%;
-  margin-bottom: 25px;
+  width: 420px;
+  max-width: 90%;
+  margin-bottom: 20px;
+  animation: fadeUp 1.2s ease-out;
 }
 
-h1 {
-  font-size: 64px;
-  margin: 0;
-  letter-spacing: 3px;
-  font-weight: 600;
-}
-
-h2 {
-  font-weight: 300;
-  color: var(--muted);
-  margin-top: 10px;
-}
-
+/* BUTTONS */
 .btn {
   display: inline-block;
   margin: 10px;
@@ -87,7 +97,15 @@ h2 {
 section {
   max-width: 900px;
   margin: auto;
-  padding: 70px 20px;
+  padding: 90px 20px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+section.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 h3 {
@@ -99,7 +117,7 @@ p {
   color: var(--muted);
 }
 
-/* GRID CARDS */
+/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -124,7 +142,14 @@ p {
   color: var(--bond-orange);
 }
 
-/* INPUT */
+/* FORM */
+form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
 input {
   padding: 14px;
   width: 60%;
@@ -157,6 +182,18 @@ footer {
   font-size: 14px;
   border-top: 1px solid rgba(236,154,78,0.1);
 }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 </style>
 </head>
 
@@ -164,10 +201,9 @@ footer {
 
 <header>
 
-  <!-- MAIN LOGO ONLY -->
-  <img src="logo-main.png" class="logo-main" alt="Bond logo">
+  <div class="hero-bg"></div>
 
-  <h2>meet differently.</h2>
+  <img src="logo-main.png" class="logo-main" alt="Bond logo">
 
   <p>Wellness events connecting people through movement and shared experience.</p>
 
@@ -209,8 +245,11 @@ footer {
   <h3>Join the community</h3>
   <p>Get early access to Bond events.</p>
 
-  <input placeholder="Enter email">
-  <button>Join waitlist</button>
+  <!-- FORMSPREE WAITLIST -->
+  <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <input type="email" name="email" placeholder="Enter email" required>
+    <button type="submit">Join waitlist</button>
+  </form>
 </section>
 
 <section id="host">
@@ -221,9 +260,25 @@ footer {
 
 <footer>
   Bond<br>
-  Instagram: @meetatbond<br><br>
-  meet differently.
+  Instagram: @meetatbond
 </footer>
+
+<!-- SCROLL ANIMATION SCRIPT -->
+<script>
+const sections = document.querySelectorAll("section");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, { threshold: 0.15 });
+
+sections.forEach(section => {
+  observer.observe(section);
+});
+</script>
 
 </body>
 </html>
