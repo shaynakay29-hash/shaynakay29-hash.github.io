@@ -1,147 +1,138 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bond — meet differently</title>
+:root {
+  --bond-red: #8D0B0B;
+  --bond-orange: #EC9A4E;
+  --bond-earth: #876038;
+  --bg: #0b0b0b;
+  --text: #f5f5f5;
+  --muted: #bdbdbd;
+}
 
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #0e0e0e;
-    color: #f5f5f5;
-  }
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
 
-  header {
-    padding: 120px 20px;
-    text-align: center;
-    background: radial-gradient(circle at top, #1a1a1a, #000);
-  }
+/* HERO */
+header {
+  padding: 140px 20px 100px;
+  text-align: center;
+  background:
+    radial-gradient(circle at top, rgba(141,11,11,0.35), transparent 60%),
+    radial-gradient(circle at bottom, rgba(236,154,78,0.15), transparent 60%);
+}
 
-  h1 {
-    font-size: 60px;
-    margin: 0;
-    letter-spacing: 2px;
-  }
+h1 {
+  font-size: 72px;
+  margin: 0;
+  letter-spacing: 4px;
+  font-weight: 600;
+}
 
-  h2 {
-    font-weight: 300;
-    color: #bbb;
-  }
+h2 {
+  font-weight: 300;
+  color: var(--muted);
+  margin-top: 10px;
+}
 
-  .btn {
-    display: inline-block;
-    margin: 10px;
-    padding: 12px 24px;
-    border: 1px solid #fff;
-    color: #fff;
-    text-decoration: none;
-    transition: 0.3s;
-  }
+/* BUTTONS */
+.btn {
+  display: inline-block;
+  margin: 10px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s ease;
+  border: 1px solid transparent;
+}
 
-  .btn:hover {
-    background: #fff;
-    color: #000;
-  }
+/* Primary CTA */
+.btn-primary {
+  background: var(--bond-red);
+  color: white;
+}
 
-  section {
-    max-width: 800px;
-    margin: auto;
-    padding: 60px 20px;
-  }
+.btn-primary:hover {
+  background: var(--bond-orange);
+  color: black;
+}
 
-  h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
+/* Secondary CTA */
+.btn-outline {
+  border: 1px solid var(--bond-orange);
+  color: var(--bond-orange);
+}
 
-  ul {
-    line-height: 1.8;
-  }
+.btn-outline:hover {
+  background: var(--bond-orange);
+  color: black;
+}
 
-  footer {
-    text-align: center;
-    padding: 40px;
-    color: #777;
-    font-size: 14px;
-  }
+/* SECTIONS */
+section {
+  max-width: 900px;
+  margin: auto;
+  padding: 70px 20px;
+}
 
-  input {
-    padding: 12px;
-    width: 70%;
-    max-width: 300px;
-  }
+h3 {
+  font-size: 26px;
+  margin-bottom: 14px;
+}
 
-  button {
-    padding: 12px 20px;
-    border: none;
-    background: #fff;
-    color: #000;
-    cursor: pointer;
-  }
-</style>
-</head>
+/* FEATURE CARDS */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
 
-<body>
+.card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(236,154,78,0.15);
+  padding: 20px;
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+}
 
-<header>
-  <h1>Bond</h1>
-  <h2>meet differently.</h2>
-  <p>Wellness-driven events in Toronto & cottage country.</p>
+.card b {
+  color: var(--bond-orange);
+}
 
-  <a class="btn" href="#join">Join waitlist</a>
-  <a class="btn" href="#host">Host with us</a>
-</header>
+/* EMAIL */
+input {
+  padding: 14px;
+  width: 60%;
+  max-width: 320px;
+  border-radius: 10px;
+  border: 1px solid rgba(236,154,78,0.3);
+  background: transparent;
+  color: white;
+}
 
-<section>
-  <h3>What is Bond?</h3>
-  <p>
-    Bond is a social wellness experience platform based in Toronto.
-    We create curated outdoor events that blend movement, connection, and lifestyle.
-  </p>
-</section>
+button {
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: none;
+  background: var(--bond-red);
+  color: white;
+  cursor: pointer;
+}
 
-<section>
-  <h3>The Experience</h3>
-  <ul>
-    <li><b>Move</b> — fitness, hikes, outdoor activity</li>
-    <li><b>Meet</b> — real connection in small groups</li>
-    <li><b>Vibe</b> — music, nature, curated environments</li>
-  </ul>
-</section>
+button:hover {
+  background: var(--bond-orange);
+  color: black;
+}
 
-<section>
-  <h3>Who it's for</h3>
-  <ul>
-    <li>22–32 year olds in Toronto</li>
-    <li>People who want real-life connection</li>
-    <li>Health, fitness, and wellness focused lifestyle</li>
-    <li>People seeking better social experiences</li>
-  </ul>
-</section>
-
-<section id="join">
-  <h3>Join the community</h3>
-  <p>Get early access to Bond events.</p>
-
-  <input placeholder="Enter email">
-  <button>Join</button>
-</section>
-
-<section id="host">
-  <h3>Host with us</h3>
-  <p>We collaborate with brands, instructors, and spaces.</p>
-  <p>Email: meetatbond@gmail.com</p>
-</section>
-
-<footer>
-  Bond — Toronto  
-  <br>
-  Instagram: @meetatbond  
-  <br><br>
-  meet differently.
-</footer>
-
-</body>
-</html>
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 50px;
+  color: #777;
+  font-size: 14px;
+  border-top: 1px solid rgba(236,154,78,0.1);
+}
