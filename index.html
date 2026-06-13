@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bond — meet differently</title>
+
+<style>
 :root {
   --bond-red: #8D0B0B;
   --bond-orange: #EC9A4E;
@@ -37,7 +45,6 @@ h2 {
   margin-top: 10px;
 }
 
-/* BUTTONS */
 .btn {
   display: inline-block;
   margin: 10px;
@@ -49,7 +56,6 @@ h2 {
   border: 1px solid transparent;
 }
 
-/* Primary CTA */
 .btn-primary {
   background: var(--bond-red);
   color: white;
@@ -60,7 +66,6 @@ h2 {
   color: black;
 }
 
-/* Secondary CTA */
 .btn-outline {
   border: 1px solid var(--bond-orange);
   color: var(--bond-orange);
@@ -81,12 +86,17 @@ section {
 h3 {
   font-size: 26px;
   margin-bottom: 14px;
+  color: var(--text);
 }
 
-/* FEATURE CARDS */
+p {
+  color: var(--muted);
+}
+
+/* GRID CARDS */
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
   margin-top: 20px;
 }
@@ -97,13 +107,19 @@ h3 {
   padding: 20px;
   border-radius: 16px;
   backdrop-filter: blur(8px);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(236,154,78,0.4);
 }
 
 .card b {
   color: var(--bond-orange);
 }
 
-/* EMAIL */
+/* INPUT */
 input {
   padding: 14px;
   width: 60%;
@@ -136,3 +152,104 @@ footer {
   font-size: 14px;
   border-top: 1px solid rgba(236,154,78,0.1);
 }
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Bond</h1>
+  <h2>meet differently.</h2>
+  <p>Wellness-driven events in Toronto & cottage country that bring people outside, into movement, and into real connection.</p>
+
+  <a class="btn btn-primary" href="#join">Join waitlist</a>
+  <a class="btn btn-outline" href="#host">Host with us</a>
+</header>
+
+<section>
+  <h3>What is Bond?</h3>
+  <p>
+    Bond is a social wellness experience platform based in Toronto.
+    We create curated outdoor events that blend movement, connection, and lifestyle.
+    Not networking. Not dating. Just better ways to meet people.
+  </p>
+</section>
+
+<section>
+  <h3>The Experience</h3>
+
+  <div class="grid">
+    <div class="card">
+      <b>Move</b>
+      <p>Outdoor fitness, hikes, seasonal wellness experiences that feel alive.</p>
+    </div>
+
+    <div class="card">
+      <b>Meet</b>
+      <p>Small-group environments designed for real connection—not networking.</p>
+    </div>
+
+    <div class="card">
+      <b>Vibe</b>
+      <p>Music, golden-hour settings, and curated social energy in nature.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Who it's for</h3>
+  <ul>
+    <li>22–32 year olds in Toronto</li>
+    <li>People who want real-life connection</li>
+    <li>Health, fitness, and wellness focused lifestyle</li>
+    <li>People seeking better social experiences</li>
+  </ul>
+</section>
+
+<section>
+  <h3>Early stage, real momentum</h3>
+  <p>
+    Bond is building its first wave of curated events in Toronto and cottage country.
+    We’re currently inviting early members, partners, and hosts to shape what it becomes.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <b>Toronto-based</b>
+      <p>Focused on real-world connection in the city and nearby nature.</p>
+    </div>
+
+    <div class="card">
+      <b>Curated drops</b>
+      <p>Limited-capacity events designed for quality over scale.</p>
+    </div>
+
+    <div class="card">
+      <b>Community-first</b>
+      <p>Built around people, not platforms.</p>
+    </div>
+  </div>
+</section>
+
+<section id="join">
+  <h3>Join the community</h3>
+  <p>Get early access to Bond events in Toronto & cottage country.</p>
+
+  <input placeholder="Enter email">
+  <button>Join waitlist</button>
+</section>
+
+<section id="host">
+  <h3>Host with us</h3>
+  <p>We collaborate with brands, instructors, wellness spaces, and unique venues.</p>
+  <p>Email: meetatbond@gmail.com</p>
+</section>
+
+<footer>
+  Bond — Toronto<br>
+  Instagram: @meetatbond<br><br>
+  meet differently.
+</footer>
+
+</body>
+</html>
