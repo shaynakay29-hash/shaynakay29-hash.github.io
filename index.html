@@ -25,17 +25,30 @@ body {
 
 /* HERO */
 header {
-  padding: 140px 20px 100px;
+  padding: 120px 20px 90px;
   text-align: center;
   background:
     radial-gradient(circle at top, rgba(141,11,11,0.35), transparent 60%),
     radial-gradient(circle at bottom, rgba(236,154,78,0.15), transparent 60%);
 }
 
+/* LOGOS */
+.logo-main {
+  width: 220px;
+  max-width: 80%;
+  margin-bottom: 20px;
+}
+
+.logo-mark {
+  width: 90px;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
 h1 {
-  font-size: 72px;
+  font-size: 64px;
   margin: 0;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   font-weight: 600;
 }
 
@@ -86,7 +99,6 @@ section {
 h3 {
   font-size: 26px;
   margin-bottom: 14px;
-  color: var(--text);
 }
 
 p {
@@ -106,7 +118,6 @@ p {
   border: 1px solid rgba(236,154,78,0.15);
   padding: 20px;
   border-radius: 16px;
-  backdrop-filter: blur(8px);
   transition: 0.3s ease;
 }
 
@@ -158,9 +169,15 @@ footer {
 <body>
 
 <header>
-  <h1>Bond</h1>
+
+  <!-- LOGOS -->
+  <img src="logo-mark.png" class="logo-mark" alt="Bond logo mark">
+  <br>
+  <img src="logo-main.png" class="logo-main" alt="Bond logo">
+
   <h2>meet differently.</h2>
-  <p>Wellness-driven events in Toronto & cottage country that bring people outside, into movement, and into real connection.</p>
+
+  <p>Wellness events connecting people through movement and shared experience.</p>
 
   <a class="btn btn-primary" href="#join">Join waitlist</a>
   <a class="btn btn-outline" href="#host">Host with us</a>
@@ -169,8 +186,8 @@ footer {
 <section>
   <h3>What is Bond?</h3>
   <p>
-    Bond is a social wellness experience platform based in Toronto.
-    We create curated outdoor events that blend movement, connection, and lifestyle.
+    Bond is a social wellness experience platform.
+    We create curated events that blend movement, connection, and lifestyle.
     Not networking. Not dating. Just better ways to meet people.
   </p>
 </section>
@@ -181,59 +198,24 @@ footer {
   <div class="grid">
     <div class="card">
       <b>Move</b>
-      <p>Outdoor fitness, hikes, seasonal wellness experiences that feel alive.</p>
+      <p>Fitness, outdoor activity, and experiences that feel alive.</p>
     </div>
 
     <div class="card">
       <b>Meet</b>
-      <p>Small-group environments designed for real connection—not networking.</p>
+      <p>Small-group environments designed for real connection.</p>
     </div>
 
     <div class="card">
       <b>Vibe</b>
-      <p>Music, golden-hour settings, and curated social energy in nature.</p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <h3>Who it's for</h3>
-  <ul>
-    <li>22–32 year olds in Toronto</li>
-    <li>People who want real-life connection</li>
-    <li>Health, fitness, and wellness focused lifestyle</li>
-    <li>People seeking better social experiences</li>
-  </ul>
-</section>
-
-<section>
-  <h3>Early stage, real momentum</h3>
-  <p>
-    Bond is building its first wave of curated events in Toronto and cottage country.
-    We’re currently inviting early members, partners, and hosts to shape what it becomes.
-  </p>
-
-  <div class="grid">
-    <div class="card">
-      <b>Toronto-based</b>
-      <p>Focused on real-world connection in the city and nearby nature.</p>
-    </div>
-
-    <div class="card">
-      <b>Curated drops</b>
-      <p>Limited-capacity events designed for quality over scale.</p>
-    </div>
-
-    <div class="card">
-      <b>Community-first</b>
-      <p>Built around people, not platforms.</p>
+      <p>Music, atmosphere, and curated social energy.</p>
     </div>
   </div>
 </section>
 
 <section id="join">
   <h3>Join the community</h3>
-  <p>Get early access to Bond events in Toronto & cottage country.</p>
+  <p>Get early access to Bond events.</p>
 
   <input placeholder="Enter email">
   <button>Join waitlist</button>
@@ -246,7 +228,7 @@ footer {
 </section>
 
 <footer>
-  Bond — Toronto<br>
+  Bond<br>
   Instagram: @meetatbond<br><br>
   meet differently.
 </footer>
