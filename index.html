@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bond</title>
 
-<!-- INTER FONT -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
@@ -23,11 +22,12 @@ body {
   font-family: "Inter", sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.6;
   overflow-x: hidden;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 header {
   position: relative;
   min-height: 100vh;
@@ -43,36 +43,57 @@ header {
 /* 🌊 VIDEO BACKGROUND */
 .hero-video {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   z-index: -3;
-  opacity: 0.65;
+  transform: scale(1.05);
 }
 
-/* 🌫️ DARK OVERLAY */
-.hero-overlay {
+/* 🎬 CINEMATIC COLOR GRADING LAYERS */
+.hero-grade-1 {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    circle at center,
-    rgba(0,0,0,0.55),
+  inset: 0;
+  background: radial-gradient(circle at 50% 40%, rgba(236,154,78,0.18), transparent 60%);
+  z-index: -2;
+}
+
+.hero-grade-2 {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.65),
     rgba(0,0,0,0.85)
   );
-  z-index: -2;
+  z-index: -1;
+}
+
+/* ✨ LOGO WRAPPER (GLOW EFFECT) */
+.logo-wrap {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+/* SOFT GLOW BEHIND LOGO */
+.logo-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  background: radial-gradient(circle, rgba(236,154,78,0.25), transparent 60%);
+  filter: blur(20px);
+  z-index: -1;
 }
 
 /* LOGO */
 .logo-main {
-  width: 420px;
-  max-width: 90%;
-  margin-bottom: 20px;
+  width: 440px;
+  max-width: 92%;
   z-index: 1;
+  position: relative;
+  animation: fadeUp 1.2s ease-out;
 }
 
 /* BUTTONS */
@@ -197,6 +218,18 @@ footer {
   font-size: 14px;
   border-top: 1px solid rgba(236,154,78,0.1);
 }
+
+/* ANIMATION */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 </style>
 </head>
 
@@ -204,16 +237,19 @@ footer {
 
 <header>
 
-  <!-- 🌊 WAVES VIDEO -->
+  <!-- VIDEO -->
   <video autoplay muted loop playsinline class="hero-video">
     <source src="waves.mp4" type="video/mp4">
   </video>
 
-  <!-- 🌫️ OVERLAY -->
-  <div class="hero-overlay"></div>
+  <!-- CINEMATIC GRADING -->
+  <div class="hero-grade-1"></div>
+  <div class="hero-grade-2"></div>
 
-  <!-- LOGO -->
-  <img src="logo-main.png" class="logo-main" alt="Bond logo">
+  <!-- LOGO GLOW WRAP -->
+  <div class="logo-wrap">
+    <img src="logo-main.png" class="logo-main" alt="Bond logo">
+  </div>
 
   <p>Wellness events connecting people through movement and shared experience.</p>
 
